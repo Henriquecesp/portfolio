@@ -1,5 +1,6 @@
 import { Typography } from '@components/typography';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 export const Header = (): JSX.Element => {
   return (
@@ -10,7 +11,7 @@ export const Header = (): JSX.Element => {
           <ul className="flex items-center">
             <li className="h-6 w-6">
               <Typography variant='body1'>
-                Projects
+                <FormattedMessage id='header.projects' />
               </Typography>
             </li>
           </ul>
@@ -22,7 +23,7 @@ export const Header = (): JSX.Element => {
           <ul className="flex items-center">
             <li className="pr-6">
               <Typography variant='body1'>
-                Youtube
+                <FormattedMessage id='header.youtube' />
               </Typography>
             </li>
           </ul>
@@ -34,14 +35,16 @@ export const Header = (): JSX.Element => {
           <ul className="flex items-center">
             <li className="h-6 w-6">
               <Typography variant='body1'>
-                Github
+                <FormattedMessage id='header.github' />
+
               </Typography>
             </li>
           </ul>
           <ul className="flex items-center">
             <li className="pr-6">
               <Typography variant='body1'>
-                Contacts
+                <FormattedMessage id='header.contact' />
+
               </Typography>
             </li>
           </ul>
