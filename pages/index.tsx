@@ -49,7 +49,7 @@ export async function getStaticProps() {
     }`
   }, {
     headers: {
-      'Authorization': 'Bearer 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',
+      'Authorization': 'Bearer ' + process.env.GITHUB_TOKEN,
       'Content-Type': 'application/json'
     }
   })
