@@ -1,10 +1,12 @@
 import React from "react";
 import styles from './Button.module.css'
 
-export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, React.AriaAttributes { }
+export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, React.AriaAttributes {
+  href?: string;
+}
 
 export const ButtonPrimary: React.FC<ButtonProps> = props => {
-  const { children, ...rest } = props;
+  const { children, href, ...rest } = props;
 
   return (
     <div className={styles.container}>

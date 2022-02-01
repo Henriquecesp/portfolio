@@ -22,7 +22,7 @@ export function Tooltip({ children, message }: Props): JSX.Element {
             onMouseLeave={handleMouseLeave}
         >
             <div
-                className="absolute whitespace-no-wrap bg-gradient-to-r from-black to-gray-700 text-white px-4 py-2 rounded flex items-center transition-all duration-150"
+                className="absolute whitespace-no-wrap bg-gradient-to-r from-purple-500 to-purple-300 text-white px-4 py-2 rounded flex items-center transition-all duration-150"
                 style={{ left: "100%", opacity: 0 }}
                 ref={tipRef}
             >

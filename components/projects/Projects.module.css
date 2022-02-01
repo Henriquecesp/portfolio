@@ -1,0 +1,26 @@
+.image {
+    position: relative;
+}
+.image:before,
+.image:after,
+.image > :first-child:before,
+.image > :first-child:after {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-color: #4d039c; /* or whatever colour */
+    border-style: solid; /* or whatever style */
+    content: ' ';
+}
+.image:before {
+    width: 60%;
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+}
+.image > :first-child:before {
+    height: 60%;
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+}

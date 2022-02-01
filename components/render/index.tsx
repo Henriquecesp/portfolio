@@ -1,3 +1,4 @@
+import { CardProps } from '@components/github/Card';
 import React from 'react';
 
 export interface ComponentsRenderConfig {
@@ -8,16 +9,19 @@ export interface ComponentsRenderConfig {
 
 interface Props {
   Components: ComponentsRenderConfig[];
+  pinnedItems: CardProps[];
 }
 
-export const Render = ({ Components }: Props): JSX.Element => {
+export const Render = ({ Components, ...rest }: Props): JSX.Element => {
   return (
     <>
-      {Components.map(({ Component }, index) => {
-        return (
-          <Component key={index} />
-        )
-      })}
+      {Components
+        .sort((a, b) => a.order - b.order)
+        .map(({ Component }, index) => {
+          return (
+            <Component key={index} {...rest} />
+          )
+        })}
     </>
   )
 }
