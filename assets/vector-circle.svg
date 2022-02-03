@@ -57,11 +57,5 @@
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_69_149"/>
 </filter>
-<clipPath id="clip0_69_149">
-<rect width="224.34" height="216.61" fill="white" transform="translate(20 20)"/>
-</clipPath>
-<clipPath id="clip1_69_149">
-<rect width="224.34" height="216.61" fill="white" transform="translate(20 20)"/>
-</clipPath>
 </defs>
 </svg>
