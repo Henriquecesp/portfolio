@@ -1,9 +1,9 @@
-import { Footer } from '@components/footer';
 import { Hero } from '@components/hero';
 import { Header } from '@components/header';
 import { ComponentsRenderConfig } from '.';
 import { Logos } from '@components/logos';
 import { Projects } from '@components/projects';
+import { Contact } from '@components/contact';
 import dynamic from 'next/dynamic';
 import Github from '@components/github';
 
@@ -43,8 +43,8 @@ export const ComponentsHome: ComponentsRenderConfig[] = [
         Component: Logos
     },
     {
-        name: 'Footer',
-        order: 1000,
-        Component: Footer
+        name: 'Contact',
+        order: 6,
+        Component: Contact
     }
 ];
