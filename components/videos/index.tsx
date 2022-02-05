@@ -91,7 +91,7 @@ const Videos = (): JSX.Element => {
   return (
     <section
       id="youtube"
-      className="text-gray-100 relative z-0"
+      className="text-gray-100 relative z-0 min-h-screen"
       style={{
         background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 100%)'
       }}
@@ -116,7 +116,7 @@ const Videos = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <Vector className='absolute w-full left-1/4 top-0 h-full z-10' />
+      <Vector className='absolute w-full left-1/4 bottom-0 z-10' />
     </section>
   );
 }

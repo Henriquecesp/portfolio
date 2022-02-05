@@ -1,5 +1,6 @@
 import { CardProps } from '@components/github/Card';
 import React from 'react';
+import ReactFullpage from "@fullpage/react-fullpage";
 
 export interface ComponentsRenderConfig {
   name: string;
@@ -15,13 +16,22 @@ interface Props {
 export const Render = ({ Components, ...rest }: Props): JSX.Element => {
   return (
     <>
-      {Components
-        .sort((a, b) => a.order - b.order)
-        .map(({ Component }, index) => {
-          return (
-            <Component key={index} {...rest} />
-          )
-        })}
+      <ReactFullpage
+        navigation
+        render={() => (
+          <ReactFullpage.Wrapper>
+            {Components
+              .sort((a, b) => a.order - b.order)
+              .map(({ Component }, index) => {
+                return (
+                  <div className="section" key={index}>
+                    <Component  {...rest} />
+                  </div>
+                )
+              })}
+          </ReactFullpage.Wrapper>
+        )}
+      />
     </>
   )
 }
