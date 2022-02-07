@@ -18,14 +18,16 @@ export const Render = ({ Components, ...rest }: Props): JSX.Element => {
     <>
       <ReactFullpage
         navigation
-        render={() => (
+        render={({
+          fullpageApi
+        }) => (
           <ReactFullpage.Wrapper>
             {Components
               .sort((a, b) => a.order - b.order)
               .map(({ Component }, index) => {
                 return (
                   <div className="section" key={index}>
-                    <Component  {...rest} />
+                    <Component fullpageApi={fullpageApi}  {...rest} />
                   </div>
                 )
               })}

@@ -6,8 +6,13 @@ import USA from 'assets/usa.svg';
 import { useRouter } from 'next/dist/client/router';
 import { Tooltip } from '@components/tooltip';
 import Link from 'next/link';
+import { fullpageApi } from '@fullpage/react-fullpage';
 
-export const Header = (): JSX.Element => {
+interface Props {
+  fullpageApi: fullpageApi;
+}
+
+export const Header = ({ fullpageApi }: Props): JSX.Element => {
   const router = useRouter();
   const { locale } = router;
 
@@ -23,13 +28,11 @@ export const Header = (): JSX.Element => {
         <nav className="px-4 flex justify-between bg-white h-16">
           <ul className="flex items-center">
             <li className="h-6 w-6 z-50">
-              <Link href='#projects' passHref>
-                <a>
-                  <Typography variant='body1'>
-                    <FormattedMessage id='header.projects' />
-                  </Typography>
-                </a>
-              </Link>
+              <span className="cursor-pointer" onClick={() => fullpageApi.moveTo(2)}>
+                <Typography variant='body1'>
+                  <FormattedMessage id='header.projects' />
+                </Typography>
+              </span>
             </li>
           </ul>
           <ul className="flex items-center">
@@ -39,13 +42,11 @@ export const Header = (): JSX.Element => {
           </ul>
           <ul className="flex items-center">
             <li className="pr-6 z-50">
-              <Link href='#youtube' passHref>
-                <a>
-                  <Typography variant='body1'>
-                    <FormattedMessage id='header.youtube' />
-                  </Typography>
-                </a>
-              </Link>
+              <span className="cursor-pointer" onClick={() => fullpageApi.moveTo(3)}>
+                <Typography variant='body1'>
+                  <FormattedMessage id='header.youtube' />
+                </Typography>
+              </span>
             </li>
           </ul>
         </nav>
@@ -55,13 +56,11 @@ export const Header = (): JSX.Element => {
         <nav className="px-4 flex justify-between bg-white h-16">
           <ul className="flex items-center z-50">
             <li className="h-6 w-6 z-50">
-              <Link href='#github' passHref>
-                <a>
-                  <Typography variant='body1'>
-                    <FormattedMessage id='header.github' />
-                  </Typography>
-                </a>
-              </Link>
+              <span className="cursor-pointer" onClick={() => fullpageApi.moveTo(4)}>
+                <Typography variant='body1'>
+                  <FormattedMessage id='header.github' />
+                </Typography>
+              </span>
             </li>
           </ul>
           <ul className="flex items-center">
@@ -75,13 +74,11 @@ export const Header = (): JSX.Element => {
           </ul>
           <ul className="flex items-center">
             <li className="pr-6 z-50">
-              <Link href='#contact' passHref>
-                <a>
-                  <Typography variant='body1'>
-                    <FormattedMessage id='header.contact' />
-                  </Typography>
-                </a>
-              </Link>
+              <span className="cursor-pointer" onClick={() => fullpageApi.moveTo(5)}>
+                <Typography variant='body1'>
+                  <FormattedMessage id='header.contact' />
+                </Typography>
+              </span>
             </li>
           </ul>
         </nav>
