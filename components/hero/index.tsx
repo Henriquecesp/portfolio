@@ -5,10 +5,17 @@ import { FormattedMessage } from 'react-intl';
 import Image from 'next/image';
 import Imagem from 'assets/hero.png';
 import { SocialMedia } from './socialMedia';
+import { Header } from '@components/header';
+import { fullpageApi } from '@fullpage/react-fullpage';
 
-export const Hero = (): JSX.Element => {
+interface Props {
+  fullpageApi: fullpageApi;
+}
+
+export const Hero = ({ fullpageApi }: Props): JSX.Element => {
   return (
     <>
+      <Header fullpageApi={fullpageApi} />
       <section className='min-h-screen bg-gradient-to-r from-black-500 via-black-100 to-black-500 w-full flex justify-between overflow-hidden'>
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center z-10">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -30,7 +37,7 @@ export const Hero = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="absolute right-5 -bottom-2 md:w-3/4 z-0">
+        <div className="absolute right-5 -bottom-1 md:w-3/4 z-0">
           <Image
             src={Imagem}
             className='object-cover object-center rounded static'
@@ -38,7 +45,7 @@ export const Hero = (): JSX.Element => {
           />
         </div>
       </section>
-      <div className='absolute inset-0 left-0 -bottom-0.5 min-h-full min-w-full bg-gradient-to-t from-purple-500/20 to-purple-100/0' />
+      <div className='absolute inset-0 left-0 bottom-0 min-h-full min-w-full bg-gradient-to-t from-purple-500/20 to-purple-100/0' />
     </>
   );
 }

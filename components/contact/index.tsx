@@ -10,7 +10,7 @@ export const Contact = (): JSX.Element => {
   return (
     <section
       id='contact'
-      className="text-gray-400 body-font relative"
+      className="text-gray-400 body-font relative min-h-screen flex flex-col items-center justify-center"
       style={{
         background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 100%)'
       }}
