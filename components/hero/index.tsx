@@ -7,6 +7,7 @@ import Imagem from 'assets/hero.png';
 import { SocialMedia } from './socialMedia';
 import { Header } from '@components/header';
 import { fullpageApi } from '@fullpage/react-fullpage';
+import { motion } from 'framer-motion';
 
 interface Props {
   fullpageApi: fullpageApi;
@@ -37,13 +38,22 @@ export const Hero = ({ fullpageApi }: Props): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="absolute right-5 -bottom-1 md:w-3/4 z-0">
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          className="absolute right-5 -bottom-1 md:w-3/4 z-0">
           <Image
             src={Imagem}
             className='object-cover object-center rounded static'
             alt="Picture of the author"
+            priority
+            placeholder='blur'
           />
-        </div>
+        </motion.div>
       </section>
       <div className='absolute inset-0 left-0 bottom-0 min-h-full min-w-full bg-gradient-to-t from-purple-500/20 to-purple-100/0' />
     </>

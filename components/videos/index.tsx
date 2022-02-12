@@ -4,10 +4,10 @@ import { Typography } from '@components/typography';
 import React from 'react';
 import { Carousel } from '@components/carousel';
 import Vector from 'assets/vector.svg';
-import VectorCircle from 'assets/vector-circle.svg';
 import VectorBottom from 'assets/vector-video-bottom.svg';
 import { VideoWithThumb } from './VideoWithThumb';
 import { FormattedMessage } from 'react-intl';
+import { VectorCircle } from '@components/svgs/VectorCircle';
 
 const Videos = (): JSX.Element => {
   const slides = [
@@ -96,7 +96,7 @@ const Videos = (): JSX.Element => {
         background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 100%)'
       }}
     >
-      <VectorCircle className="absolute top-1/3 left-1/3 -translate-y-1/2 -translate-x-1/2" />
+      <VectorCircle className='absolute top-[18%] left-1/4' />
       <div className="container px-5 py-24 mx-auto z-20 relative">
         <VectorBottom className="absolute bottom-0 right-36 -translate-y-1/2 -translate-x-1/2" />
         <div className="text-center mb-20">
