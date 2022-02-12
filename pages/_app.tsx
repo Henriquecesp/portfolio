@@ -4,6 +4,7 @@ import "tailwindcss/tailwind.css";
 import { IntlProvider } from "react-intl";
 import { useRouter } from "next/dist/client/router";
 import * as locales from "../content/locale";
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -17,9 +18,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       defaultLocale={defaultLocale}
       messages={messages}
     >
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.pathname} />
+      </AnimatePresence>
     </IntlProvider>
-
   )
 }
 
