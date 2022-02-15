@@ -16,6 +16,10 @@ export const pt = {
         'videos.title': 'HENRIQUECESP NO YOUTUBE',
         'videos.subtitle':
             'Canal dedicado a compartilhar conhecimento na área de programação e desenvolvimento!',
-        'videos.cta': 'YOUTUBE!'
+        'videos.cta': 'YOUTUBE!',
+        'contact.title': 'CONTATE-ME',
+        'contact.subtitle':
+            'Entre em contato agora que você me conhece, é hora de começarmos a fazer algo incrível juntos!',
+        'contact.cta': 'CONTATO'
     }
 };

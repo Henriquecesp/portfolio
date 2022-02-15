@@ -9,6 +9,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import * as gtag from "@lib/gtag";
 import { CONTACT_EMAIL } from '@lib/constants'
+import { FormattedMessage } from 'react-intl';
 
 const variants = {
   open: {
@@ -56,16 +57,16 @@ export const Contact = (): JSX.Element => {
       >
         <div className="flex flex-col text-center w-full mb-12 text-gray-100">
           <Typography variant='h4' className='mb-4'>
-            CONTACT ME
+            <FormattedMessage id='contact.title' />
           </Typography>
           <Typography variant='body2' className="mx-auto w-1/4">
-            Contact Now that you know me, it&lsquo;s time to start making something amazing together
+            <FormattedMessage id='contact.subtitle' />
           </Typography>
         </div>
         <div className="m-auto flex justify-center">
           <VectorContatct className='absolute left-1/4' />
           <ButtonPrimary className='w-[240px]' onClick={handleClick}>
-            CONTACT
+            <FormattedMessage id='contact.cta' />
           </ButtonPrimary>
         </div>
       </motion.div>
