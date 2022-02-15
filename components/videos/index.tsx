@@ -10,6 +10,8 @@ import { FormattedMessage } from 'react-intl';
 import { VectorCircle } from '@components/svgs/VectorCircle';
 import { useInView } from 'react-intersection-observer';
 import { VectorVideoBottom } from '@components/svgs/VectorVideoBottom';
+import * as gtag from "@lib/gtag";
+import { YOUTUBE_PROFILE_URL } from '@lib/constants'
 
 const variants = {
   open: (height = 1000) => ({
@@ -32,6 +34,16 @@ const variants = {
 
 const Videos = (): JSX.Element => {
   const [sectionRef, sectionInView] = useInView();
+
+  const handleClick = () => {
+    window.open(YOUTUBE_PROFILE_URL, '_blank');
+    gtag.event({
+      action: 'click',
+      category: 'Youtube',
+      label: 'user clicked on youtube cta button',
+      value: YOUTUBE_PROFILE_URL
+    })
+  }
   const slides = [
     <VideoWithThumb
       key="1"
@@ -139,7 +151,7 @@ const Videos = (): JSX.Element => {
           className='flex justify-center mt-12'
         >
           <div className='flex flex-col justify-center w-1/6'>
-            <ButtonPrimary>
+            <ButtonPrimary onClick={handleClick}>
               <FormattedMessage id="videos.cta" />
             </ButtonPrimary>
           </div>

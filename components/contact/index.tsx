@@ -7,7 +7,8 @@ import { Typography } from '@components/typography';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-
+import * as gtag from "@lib/gtag";
+import { CONTACT_EMAIL } from '@lib/constants'
 
 const variants = {
   open: {
@@ -24,6 +25,17 @@ const variants = {
 
 export const Contact = (): JSX.Element => {
   const [sectionRef, sectionInView] = useInView();
+
+  const handleClick = () => {
+    const link = "mailto:" + CONTACT_EMAIL;
+    window.open(link, '_blank');
+    gtag.event({
+      action: 'click',
+      category: 'Contact',
+      label: 'user clicked on contact cta button',
+      value: link
+    })
+  }
 
   return (
     <section
@@ -52,7 +64,7 @@ export const Contact = (): JSX.Element => {
         </div>
         <div className="m-auto flex justify-center">
           <VectorContatct className='absolute left-1/4' />
-          <ButtonPrimary className='w-[240px]'>
+          <ButtonPrimary className='w-[240px]' onClick={handleClick}>
             CONTACT
           </ButtonPrimary>
         </div>
