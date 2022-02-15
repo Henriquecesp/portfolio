@@ -3,6 +3,8 @@ import { VectorProjectsTriple } from '@components/svgs/VectorProjectsTriple';
 import { Typography } from '@components/typography';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import * as gtag from "@lib/gtag";
+import { CONTACT_EMAIL } from '@lib/constants'
 
 interface Props {
   title: string;
@@ -11,6 +13,18 @@ interface Props {
 }
 
 export const ProjectText = ({ title, subtitle, cta }: Props): JSX.Element => {
+
+  const handleClick = () => {
+    const link = "mailto:" + CONTACT_EMAIL;
+    window.open(link, '_blank');
+    gtag.event({
+      action: 'click',
+      category: 'Projects',
+      label: 'user clicked on projects cta button',
+      value: link
+    })
+  }
+
   return (
     <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       <VectorProjectsTriple className='mb-10' />
@@ -25,7 +39,7 @@ export const ProjectText = ({ title, subtitle, cta }: Props): JSX.Element => {
         />
       </Typography>
       <div className='flex flex-col justify-center w-2/4'>
-        <ButtonPrimary>
+        <ButtonPrimary onClick={handleClick}>
           <FormattedMessage id={cta} />
         </ButtonPrimary>
       </div>

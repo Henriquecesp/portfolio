@@ -1,6 +1,7 @@
 import Modal from '@components/modal';
 import React, { useState } from 'react';
 import { BiFullscreen } from 'react-icons/bi';
+import * as gtag from "@lib/gtag";
 
 interface Props {
   image: JSX.Element;
@@ -17,6 +18,12 @@ export const VideoWithThumb = ({ image, video, className }: Props): JSX.Element 
   };
 
   const handleOpen = (): void => {
+    gtag.event({
+      action: 'click',
+      category: 'Video',
+      label: 'user clicked on video thumbnail',
+      value: video.props.src
+    });
     setIsClicked(true);
   };
 

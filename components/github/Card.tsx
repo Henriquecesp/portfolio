@@ -2,6 +2,7 @@ import { Typography } from '@components/typography';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
+import * as gtag from "@lib/gtag";
 
 export interface CardProps {
   name: string;
@@ -23,6 +24,15 @@ export const GithubCard = ({
     return descriptionText.replace(/\p{Emoji}/gu, '');
   }
 
+  const handleClick = () => {
+    gtag.event({
+      action: 'click',
+      category: 'Github',
+      label: 'user clicked on github card',
+      value: url
+    })
+  }
+
   return (
     <div className={`p-2 relative min-w-[33%]`}>
       <div className="bg-purple-600 p-6 relative overflow-hidden">
@@ -33,9 +43,9 @@ export const GithubCard = ({
               {renderDescription()}
             </Typography>
           </div>
-          <div className='flex justify-between mt-4 items-center'>
+          <div className='flex justify-between mt-10 items-center'>
             <Link href={url}>
-              <a className="text-lightPurple-100 inline-flex items-center" target="_blank" >
+              <a onClick={handleClick} className="text-lightPurple-100 inline-flex items-center" target="_blank" >
                 See code
               </a>
             </Link>

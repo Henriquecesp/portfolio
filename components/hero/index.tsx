@@ -8,12 +8,26 @@ import { SocialMedia } from './socialMedia';
 import { Header } from '@components/header';
 import { fullpageApi } from '@fullpage/react-fullpage';
 import { motion } from 'framer-motion';
+import * as gtag from "@lib/gtag";
+import { CONTACT_EMAIL } from '@lib/constants'
 
 interface Props {
   fullpageApi: fullpageApi;
 }
 
 export const Hero = ({ fullpageApi }: Props): JSX.Element => {
+
+  const handleClick = () => {
+    const link = "mailto:" + CONTACT_EMAIL;
+    window.open(link, '_blank');
+    gtag.event({
+      action: 'click',
+      category: 'Hero',
+      label: 'user clicked on hero cta button',
+      value: link
+    })
+  }
+
   return (
     <>
       <Header fullpageApi={fullpageApi} />
@@ -41,7 +55,7 @@ export const Hero = ({ fullpageApi }: Props): JSX.Element => {
               />
             </Typography>
             <div className="flex justify-center flex-col">
-              <ButtonPrimary>
+              <ButtonPrimary onClick={handleClick}>
                 <FormattedMessage id='hero.cta' />
               </ButtonPrimary>
               <SocialMedia />
