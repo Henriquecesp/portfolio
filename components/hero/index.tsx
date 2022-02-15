@@ -41,9 +41,9 @@ export const Hero = ({ fullpageApi }: Props): JSX.Element => {
           animate={{
             opacity: 1,
           }}
-          className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center z-10"
+          className="bg-black-500 bg-opacity-80 sm:bg-opacity-0 container mx-auto flex px-5 py-24 flex-row items-center z-10"
         >
-          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <div className="lg:flex-grow w-1/2 lg:pr-24 pr-16 flex flex-col items-start text-left mb-0">
             <Typography variant='h1' className='h-36'>
               <FormattedMessage id='hero.title' />
             </Typography>
@@ -69,7 +69,11 @@ export const Hero = ({ fullpageApi }: Props): JSX.Element => {
           animate={{
             opacity: 1,
           }}
-          className="absolute right-5 -bottom-1 md:w-3/4 z-0">
+          className="absolute scale-[2] right-36 -bottom-3 sm:scale-100 sm:-bottom-1 sm:w-full sm:-right-36 lg:right-5 lg:w-[90%] xl:w-3/4 z-0"
+          style={{
+            transformOrigin: 'bottom left',
+          }}
+        >
           <Image
             src={Imagem}
             className='object-cover object-center rounded static'

@@ -34,7 +34,7 @@ export const GithubCard = ({
   }
 
   return (
-    <div className={`p-2 relative min-w-[33%]`}>
+    <div className={`p-2 relative min-w-full md:min-w-[33%]`}>
       <div className="bg-purple-600 p-6 relative overflow-hidden">
         <div className="flex-col flex w-full">
           <div className='h-28'>

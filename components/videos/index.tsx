@@ -150,8 +150,8 @@ const Videos = (): JSX.Element => {
         <div
           className='flex justify-center mt-12'
         >
-          <div className='flex flex-col justify-center w-1/6'>
-            <ButtonPrimary onClick={handleClick}>
+          <div className='flex flex-col justify-center w-3/4 lg:w-1/6'>
+            <ButtonPrimary onClick={handleClick} className="flex w-full justify-center">
               <FormattedMessage id="videos.cta" />
             </ButtonPrimary>
           </div>
