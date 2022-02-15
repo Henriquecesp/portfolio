@@ -5,10 +5,10 @@
 
 import { useEffect, useState } from 'react';
 
-type BreakPoint = 'xs' | 'sm' | 'md' | 'lg';
+type BreakPoint = 'xs' | 'sm' | 'md' | 'lg' | '';
 
 const useBreakpoint = (): BreakPoint => {
-  const [breakpoint, setBreakpoint] = useState<BreakPoint>('xs');
+  const [breakpoint, setBreakpoint] = useState<BreakPoint>('');
 
   const getDeviceConfig = (width) => {
     if (width < 320) {
