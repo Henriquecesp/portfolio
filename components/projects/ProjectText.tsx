@@ -26,7 +26,7 @@ export const ProjectText = ({ title, subtitle, cta }: Props): JSX.Element => {
   }
 
   return (
-    <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+    <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 pl-0 flex flex-col items-start text-left z-50">
       <VectorProjectsTriple className='mb-10' />
       <Typography variant='h6' className='mb-6'>
         <FormattedMessage id={title} />

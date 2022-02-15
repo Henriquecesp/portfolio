@@ -7,6 +7,7 @@ import { VectorGithubTop } from '@components/svgs/VectorGithubTop';
 import { VectorGithubBottom } from '@components/svgs/VectorGithubBottom';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
+import { useBreakpoint } from '@lib/hooks';
 
 interface Props {
   pinnedItems: CardProps[];
@@ -26,7 +27,7 @@ const variants = {
   },
   closed: {
     opacity: 0,
-    x: 1000
+    x: -1000
   }
 }
 
@@ -34,7 +35,11 @@ const options = { delay: 2000, stopOnMouseEnter: true }; // Options
 const autoplay = Autoplay(options);
 
 function Github({ pinnedItems = [] }: Props): JSX.Element {
-  const [sectionRef, sectionInView] = useInView();
+  const breakPoint = useBreakpoint();
+  const blockAnimation = ['sm', 'xs', 'md'].includes(breakPoint);
+  const [sectionRef, sectionInView] = useInView({
+    initialInView: true
+  });
   const [emblaRef] = useEmblaCarousel({
     loop: true,
     skipSnaps: false,
@@ -42,15 +47,19 @@ function Github({ pinnedItems = [] }: Props): JSX.Element {
     startIndex: 2
   }, [autoplay]);
 
+  const props = blockAnimation ? {} : {
+    initial: false,
+    animate: sectionInView ? 'open' : 'closed',
+    variants: variants,
+    ref: sectionRef,
+  }
+
   return (
     <>
       <motion.section
         id="github"
         className="text-gray-600 body-font px-5 py-44 relative max-w-screen-xl m-auto"
-        ref={sectionRef}
-        initial={false}
-        animate={sectionInView ? 'open' : 'closed'}
-        variants={variants}
+        {...props}
       >
         <VectorGithubTop className="absolute top-20" />
         <div className="w-full overflow-hidden" ref={emblaRef} >
