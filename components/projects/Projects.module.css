@@ -1,26 +1,53 @@
 .image {
     position: relative;
+    border: 0.35rem solid;
+    border-image: conic-gradient(
+            from var(--angle),
+            var(--c2),
+            var(--c1) 0.1turn,
+            var(--c1) 0.15turn,
+            var(--c2) 0.25turn
+        )
+        30;
+    animation: borderRotate var(--d) linear infinite forwards;
 }
-.image:before,
-.image:after,
-.image > :first-child:before,
-.image > :first-child:after {
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    border-color: #4d039c; /* or whatever colour */
-    border-style: solid; /* or whatever style */
-    content: ' ';
+
+.image:nth-child(2) {
+    border-image: radial-gradient(
+            ellipse at var(--gradX) var(--gradY),
+            var(--c1),
+            var(--c1) 10%,
+            var(--c2) 40%
+        )
+        30;
+    animation: borderRadial var(--d) linear infinite forwards;
 }
-.image:before {
-    width: 60%;
-    top: 0;
-    left: 0;
-    border-width: 1px 0 0 1px;
+
+@keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
 }
-.image > :first-child:before {
-    height: 60%;
-    bottom: 0;
-    right: 0;
-    border-width: 0 1px 1px 0;
+
+@keyframes borderRadial {
+    20% {
+        --gradX: 100%;
+        --gradY: 50%;
+    }
+    40% {
+        --gradX: 100%;
+        --gradY: 100%;
+    }
+    60% {
+        --gradX: 50%;
+        --gradY: 100%;
+    }
+    80% {
+        --gradX: 0%;
+        --gradY: 50%;
+    }
+    100% {
+        --gradX: 50%;
+        --gradY: 0%;
+    }
 }

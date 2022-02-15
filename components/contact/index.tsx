@@ -1,23 +1,47 @@
 import { ButtonPrimary } from '@components/button';
 import { Footer } from '@components/footer';
+import { VectorCircle } from '@components/svgs/VectorCircle';
+import { VectorContatct } from '@components/svgs/VectorContatct';
+import { VectorLineup } from '@components/svgs/VectorLineup';
 import { Typography } from '@components/typography';
-import VectorContact from 'assets/vector-contact.svg';
-import VectorCircle from 'assets/vector-circle.svg';
-import VectorLineup from 'assets/vector-line-up.svg';
+import { motion } from 'framer-motion';
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
+
+
+const variants = {
+  open: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      delay: 0.5
+    }
+  },
+  closed: {
+    opacity: 0,
+  }
+}
 
 export const Contact = (): JSX.Element => {
+  const [sectionRef, sectionInView] = useInView();
+
   return (
     <section
       id='contact'
       className="text-gray-400 body-font relative min-h-screen flex flex-col items-center justify-center"
       style={{
-        background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 100%)'
+        background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 70%)'
       }}
     >
       <VectorLineup className='absolute left-48 -top-36' />
-      <VectorCircle className='absolute -right-16 -top-16' />
-      <div className="container px-5 py-24 mx-auto">
+      <VectorCircle className='absolute -right-16 -top-24' />
+      <motion.div
+        className="container px-5 py-24 mx-auto"
+        ref={sectionRef}
+        initial={false}
+        animate={sectionInView ? 'open' : 'closed'}
+        variants={variants}
+      >
         <div className="flex flex-col text-center w-full mb-12 text-gray-100">
           <Typography variant='h4' className='mb-4'>
             CONTACT ME
@@ -27,12 +51,12 @@ export const Contact = (): JSX.Element => {
           </Typography>
         </div>
         <div className="m-auto flex justify-center">
-          <VectorContact className='absolute left-1/4' />
+          <VectorContatct className='absolute left-1/4' />
           <ButtonPrimary className='w-[240px]'>
             CONTACT
           </ButtonPrimary>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </section >
   );
