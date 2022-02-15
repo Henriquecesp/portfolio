@@ -1,9 +1,20 @@
-import { motion } from 'framer-motion';
+import { motion, Transition } from 'framer-motion';
 import React from 'react';
 
 interface Props {
   className?: string;
 }
+
+const transition = {
+  duration: 3,
+  ease: 'easeInOut',
+  repeat: Infinity,
+  repeatType: 'reverse'
+} as Transition
+
+const initial = { pathLength: 0 }
+
+const animate = { pathLength: 1 }
 
 export const VectorContatct = ({ className }: Props): JSX.Element => {
   return (
@@ -14,47 +25,27 @@ export const VectorContatct = ({ className }: Props): JSX.Element => {
         <motion.path
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{
-            duration: 3,
-            ease: 'easeInOut',
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
+          transition={transition}
           d="M178 47.4214H165.846V59.5781H178V47.4214Z" fill="#7305E8" />
         <motion.path
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{
-            duration: 3,
-            ease: 'easeInOut',
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
+          initial={initial}
+          animate={animate}
+          transition={transition}
           stroke="#7305E8"
           strokeWidth={1}
           d="M171.92 53.0737H106.547V53.9262H171.92V53.0737Z" />
         <motion.path
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{
-            duration: 3,
-            ease: 'easeInOut',
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
+          initial={initial}
+          animate={animate}
+          transition={transition}
           d="M53.4907 -0.0107422C64.0703 -0.0107421 74.4124 3.12727 83.209 9.00646C92.0057 14.8857 98.8617 23.2419 102.91 33.0186C106.959 42.7953 108.017 53.5531 105.953 63.9318C103.889 74.3105 98.7937 83.8437 91.3123 91.326C83.831 98.8083 74.2994 103.903 63.9228 105.967C53.5463 108.031 42.7909 106.971 33.0169 102.92C23.2429 98.8701 14.8891 92.0117 9.01216 83.2125C3.13519 74.4133 -0.00107337 64.0686 2.75565e-07 53.4866C0.0158075 39.3021 5.65666 25.7032 15.6848 15.6738C25.713 5.64441 39.3094 0.00362903 53.4907 -0.0107422ZM53.4907 106.131C63.9048 106.131 74.085 103.043 82.744 97.2555C91.4031 91.4684 98.1519 83.243 102.137 73.6195C106.123 63.9959 107.165 53.4064 105.134 43.1901C103.102 32.9738 98.087 23.5895 90.7231 16.2239C83.3593 8.85838 73.9771 3.84241 63.7631 1.81026C53.5491 -0.221889 42.962 0.82104 33.3406 4.80725C23.7192 8.79346 15.4957 15.5439 9.70988 24.2049C3.92411 32.8658 0.835958 43.0484 0.835958 53.4648C0.843147 67.4317 6.39264 80.8245 16.2654 90.7016C26.1382 100.579 39.527 106.132 53.4907 106.142V106.131Z"
           stroke="#7305E8"
           strokeWidth={1}
         />
         <motion.path
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{
-            duration: 3,
-            ease: 'easeInOut',
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
+          initial={initial}
+          animate={animate}
+          transition={transition}
           d="M102.221 19.3887C110.803 30.0577 112.795 46.0912 113.077 48.8005H127.473V49.6529H112.274L112.241 49.2566C112.241 49.0828 110.721 31.3391 101.531 19.9371L102.221 19.3887Z"
           stroke="#7305E8"
           strokeWidth={1}

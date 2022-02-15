@@ -2,18 +2,39 @@ import React from 'react';
 import { CardProps, GithubCard } from './Card';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import VectorBottom from 'assets/vector-gh-bottom.svg'
-import VectorTop from 'assets/vector-gh-top.svg'
 import { Logos } from '@components/logos';
+import { VectorGithubTop } from '@components/svgs/VectorGithubTop';
+import { VectorGithubBottom } from '@components/svgs/VectorGithubBottom';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 interface Props {
   pinnedItems: CardProps[];
 }
 
-const options = { delay: 1000, stopOnMouseEnter: true }; // Options
+const variants = {
+  open: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      bounce: true,
+      type: 'just'
+
+
+    }
+  },
+  closed: {
+    opacity: 0,
+    x: 1000
+  }
+}
+
+const options = { delay: 2000, stopOnMouseEnter: true }; // Options
 const autoplay = Autoplay(options);
 
 function Github({ pinnedItems = [] }: Props): JSX.Element {
+  const [sectionRef, sectionInView] = useInView();
   const [emblaRef] = useEmblaCarousel({
     loop: true,
     skipSnaps: false,
@@ -23,8 +44,15 @@ function Github({ pinnedItems = [] }: Props): JSX.Element {
 
   return (
     <>
-      <section id="github" className="text-gray-600 body-font px-5 py-44 relative max-w-screen-xl m-auto">
-        <VectorTop className="absolute top-20" />
+      <motion.section
+        id="github"
+        className="text-gray-600 body-font px-5 py-44 relative max-w-screen-xl m-auto"
+        ref={sectionRef}
+        initial={false}
+        animate={sectionInView ? 'open' : 'closed'}
+        variants={variants}
+      >
+        <VectorGithubTop className="absolute top-20" />
         <div className="w-full overflow-hidden" ref={emblaRef} >
           <div className="flex -m-2 py-4">
             {pinnedItems.map((item: CardProps) => (
@@ -38,8 +66,8 @@ function Github({ pinnedItems = [] }: Props): JSX.Element {
             ))}
           </div>
         </div>
-        <VectorBottom className="absolute right-0 bottom-[10%]" />
-      </section >
+        <VectorGithubBottom className="absolute right-0 bottom-[10%]" />
+      </motion.section >
       <Logos />
     </>
   );

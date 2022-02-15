@@ -4,8 +4,8 @@ import { Render } from '@components/render'
 import { ComponentsHome } from '@components/render/config'
 import axios from 'axios'
 import { motion } from 'framer-motion'
+import { GITHUB_API_URL } from '@lib/constants'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
 
 interface Props {
   pinnedItems: CardProps[];
@@ -29,16 +29,31 @@ const variants = {
   },
 }
 
+const query = `{
+  user(login: "henriquecesp") {
+    pinnedItems(first: 6, types: REPOSITORY) {
+      nodes {
+        ... on Repository {
+          name
+          description
+          url
+        }
+      }
+    }
+  }
+}`
+
+type ApiReturn = {
+  data: {
+    user: {
+      pinnedItems: {
+        nodes: CardProps[];
+      };
+    };
+  };
+}
+
 function Home({ pinnedItems = [] }: Props): JSX.Element {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 8000);
-    return () => clearTimeout(timer);
-  }, [loading, setLoading]);
-
   return (
     <>
       <Head>
@@ -63,28 +78,8 @@ function Home({ pinnedItems = [] }: Props): JSX.Element {
 
 
 export async function getStaticProps() {
-  const res = await axios.post<{
-    data: {
-      user: {
-        pinnedItems: {
-          nodes: CardProps[];
-        }
-      }
-    }
-  }>('https://api.github.com/graphql', {
-    query: `{
-      user(login: "henriquecesp") {
-        pinnedItems(first: 6, types: REPOSITORY) {
-          nodes {
-            ... on Repository {
-              name
-              description
-              url
-            }
-          }
-        }
-      }
-    }`
+  const { data: { data } } = await axios.post<ApiReturn>(GITHUB_API_URL, {
+    query
   }, {
     headers: {
       'Authorization': 'Bearer ' + process.env.GITHUB_TOKEN,
@@ -92,7 +87,7 @@ export async function getStaticProps() {
     }
   })
 
-  const pinnedItems = res.data.data.user.pinnedItems.nodes;
+  const pinnedItems = data.user.pinnedItems.nodes;
 
   return {
     props: {
@@ -101,4 +96,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Home;
+export default Home

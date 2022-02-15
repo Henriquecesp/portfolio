@@ -2,11 +2,29 @@ import { ButtonPrimary } from '@components/button';
 import { Footer } from '@components/footer';
 import { VectorCircle } from '@components/svgs/VectorCircle';
 import { VectorContatct } from '@components/svgs/VectorContatct';
+import { VectorLineup } from '@components/svgs/VectorLineup';
 import { Typography } from '@components/typography';
-import VectorLineup from 'assets/vector-line-up.svg';
+import { motion } from 'framer-motion';
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
+
+
+const variants = {
+  open: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      delay: 0.5
+    }
+  },
+  closed: {
+    opacity: 0,
+  }
+}
 
 export const Contact = (): JSX.Element => {
+  const [sectionRef, sectionInView] = useInView();
+
   return (
     <section
       id='contact'
@@ -17,7 +35,13 @@ export const Contact = (): JSX.Element => {
     >
       <VectorLineup className='absolute left-48 -top-36' />
       <VectorCircle className='absolute -right-16 -top-24' />
-      <div className="container px-5 py-24 mx-auto">
+      <motion.div
+        className="container px-5 py-24 mx-auto"
+        ref={sectionRef}
+        initial={false}
+        animate={sectionInView ? 'open' : 'closed'}
+        variants={variants}
+      >
         <div className="flex flex-col text-center w-full mb-12 text-gray-100">
           <Typography variant='h4' className='mb-4'>
             CONTACT ME
@@ -32,7 +56,7 @@ export const Contact = (): JSX.Element => {
             CONTACT
           </ButtonPrimary>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </section >
   );

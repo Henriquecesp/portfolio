@@ -1,3 +1,30 @@
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+}
+
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+}
+
+@property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+}
+
+:root {
+    --d: 2500ms;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: rgba(115, 5, 232, 1);
+    --c2: rgba(115, 5, 232, 0.1);
+}
+
 body {
     background-color: #230048;
 }
@@ -18,4 +45,8 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #4d039c;
+}
+
+#fp-nav ul li a span {
+    background-color: #7305e8 !important;
 }

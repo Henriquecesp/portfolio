@@ -17,8 +17,18 @@ export const Hero = ({ fullpageApi }: Props): JSX.Element => {
   return (
     <>
       <Header fullpageApi={fullpageApi} />
-      <section className='min-h-screen bg-gradient-to-r from-black-500 via-black-100 to-black-500 w-full flex justify-between overflow-hidden'>
-        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center z-10">
+      <section
+        className='min-h-screen bg-gradient-to-r from-black-500 via-black-100 to-black-500 w-full flex justify-between overflow-hidden'
+      >
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center z-10"
+        >
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <Typography variant='h1' className='h-36'>
               <FormattedMessage id='hero.title' />
@@ -37,7 +47,7 @@ export const Hero = ({ fullpageApi }: Props): JSX.Element => {
               <SocialMedia />
             </div>
           </div>
-        </div>
+        </motion.div>
         <motion.div
           initial={{
             opacity: 0,
