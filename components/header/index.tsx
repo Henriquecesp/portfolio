@@ -44,9 +44,9 @@ export const Header = ({ fullpageApi }: Props): JSX.Element => {
   return (
     <>
       <div className="w-0.5 h-14 bg-gray-100 absolute top-0 left-28"></div>
-      <div className="flex-1 flex flex-col absolute top-16 w-full px-16">
+      <div className="flex-1 flex flex-col absolute top-10 md:top-16 w-full px-16">
         <nav className="px-4 flex justify-between bg-white h-16">
-          <ul className="flex items-center">
+          <ul className="items-center hidden md:flex">
             <li className="h-6 w-6 z-50">
               <span className="cursor-pointer" onClick={() => handleClickSection(2, 'projects')}>
                 <Typography variant='body1'>
@@ -62,7 +62,7 @@ export const Header = ({ fullpageApi }: Props): JSX.Element => {
           </ul>
           <ul className="flex items-center">
             <li className="pr-6 z-50">
-              <span className="cursor-pointer" onClick={() => handleClickSection(3, 'youtube')}>
+              <span className="cursor-pointer hidden md:block" onClick={() => handleClickSection(3, 'youtube')}>
                 <Typography variant='body1'>
                   <FormattedMessage id='header.youtube' />
                 </Typography>
@@ -71,12 +71,12 @@ export const Header = ({ fullpageApi }: Props): JSX.Element => {
           </ul>
         </nav>
       </div>
-      <div className="w-0.5 h-[280px] bg-gray-100 absolute right-[8.5rem] bottom-40"></div>
+      <div className="w-0.5 h-[280px] bg-gray-100 absolute right-[8.5rem] bottom-40 hidden md:block"></div>
       <div className="flex-1 flex flex-col absolute bottom-16 w-full px-16">
         <nav className="px-4 flex justify-between bg-white h-16">
           <ul className="flex items-center z-50">
             <li className="h-6 w-6 z-50">
-              <span className="cursor-pointer" onClick={() => handleClickSection(4, 'github')}>
+              <span className="cursor-pointer hidden md:block" onClick={() => handleClickSection(4, 'github')}>
                 <Typography variant='body1'>
                   <FormattedMessage id='header.github' />
                 </Typography>
@@ -94,7 +94,7 @@ export const Header = ({ fullpageApi }: Props): JSX.Element => {
           </ul>
           <ul className="flex items-center">
             <li className="pr-6 z-50">
-              <span className="cursor-pointer" onClick={() => handleClickSection(5, 'contact')}>
+              <span className="cursor-pointer hidden md:block" onClick={() => handleClickSection(5, 'contact')}>
                 <Typography variant='body1'>
                   <FormattedMessage id='header.contact' />
                 </Typography>

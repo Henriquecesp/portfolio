@@ -27,7 +27,7 @@ export const ProjectImage = ({ image }: Props): JSX.Element => {
       transition={transition}
       className={styles.image}
     >
-      <div className="lg:max-w-4xl lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10 p-5">
+      <div className="w-1/2 hidden md:flex lg:max-w-4xl md:w-full md:mb-0 sm:mb-10 p-5">
         <Image className="object-cover object-center rounded" alt="project" src={image} />
       </div>
     </motion.div>
