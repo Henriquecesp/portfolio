@@ -16,6 +16,10 @@ export const en = {
         'videos.title': 'HENRIQUECESP ON YOUTUBE',
         'videos.subtitle':
             'Channel dedicated to sharing knowledge in the area of programming and development!',
-        'videos.cta': 'YOUTUBE!'
+        'videos.cta': 'YOUTUBE!',
+        'contact.title': 'CONTACT ME',
+        'contact.subtitle':
+            "Get in touch now that you know me, it's time for us to start doing something amazing together!",
+        'contact.cta': 'CONTACT'
     }
 };
