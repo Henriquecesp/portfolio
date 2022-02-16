@@ -1,11 +1,12 @@
-import { Footer } from '@components/footer'
 import { CardProps } from '@components/github/Card'
 import { Render } from '@components/render'
 import { ComponentsHome } from '@components/render/config'
 import axios from 'axios'
+import { NextSeo, SocialProfileJsonLd } from 'next-seo';
 import { motion } from 'framer-motion'
-import { GITHUB_API_URL } from '@lib/constants'
+import { CONTACT_EMAIL, GITHUB_API_URL, GITHUB_PROFILE_URL, INSTAGRAM_PROFILE_URL, LINKEDIN_PROFILE_URL, WEBSITE_DOMAIN, WEBSITE_TITLE, YOUTUBE_PROFILE_URL, WEBSITE_NAME } from '@lib/constants'
 import Head from 'next/head'
+import { useIntl } from 'react-intl';
 
 interface Props {
   pinnedItems: CardProps[];
@@ -54,12 +55,46 @@ type ApiReturn = {
 }
 
 function Home({ pinnedItems = [] }: Props): JSX.Element {
+  const intl = useIntl();
   return (
     <>
       <Head>
-        <title>HenriqueCesp - FullStack Dev</title>
+        <title>{WEBSITE_TITLE}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        title={WEBSITE_TITLE}
+        description={intl.formatMessage({ id: "hero.subtitle" }, { br: '|' })}
+        canonical={WEBSITE_DOMAIN}
+        additionalMetaTags={[{
+          property: 'dc:creator',
+          content: 'HenriqueCesp'
+        }, {
+          property: 'creator',
+          content: 'HenriqueCesp'
+        }]}
+        openGraph={{
+          url: WEBSITE_DOMAIN,
+          title: WEBSITE_TITLE,
+          description: intl.formatMessage({ id: "hero.subtitle" }, { br: '|' }),
+          images: [
+            { url: 'https://henriquecesp.dev/hero.png' }
+          ],
+          site_name: WEBSITE_NAME,
+        }}
+      />
+      <SocialProfileJsonLd
+        type="Person"
+        name="henriquecesp"
+        url={WEBSITE_DOMAIN}
+        sameAs={[
+          GITHUB_PROFILE_URL,
+          LINKEDIN_PROFILE_URL,
+          YOUTUBE_PROFILE_URL,
+          INSTAGRAM_PROFILE_URL,
+          CONTACT_EMAIL,
+        ]}
+      />
       <motion.main
         variants={variants}
         initial="hidden"
