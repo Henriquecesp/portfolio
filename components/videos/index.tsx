@@ -64,14 +64,14 @@ const Videos = (): JSX.Element => {
       key="2"
       image={
         <img
-          alt="Video H6bCSzxxiNc thumb"
-          src='https://img.youtube.com/vi/W3_nMM_1jy0/hqdefault.jpg'
+          alt="Video f1JzE_h62nE thumb"
+          src='https://img.youtube.com/vi/f1JzE_h62nE/hqdefault.jpg'
         />
       }
       video={
         <iframe id="player"
           key="2"
-          src="https://www.youtube.com/embed/W3_nMM_1jy0?controls=0"
+          src="https://www.youtube.com/embed/f1JzE_h62nE?controls=0"
           frameBorder="0" ></iframe>
       }
     />,
