@@ -49,14 +49,14 @@ const Videos = (): JSX.Element => {
       key="1"
       image={
         <img
-          alt="Video H6bCSzxxiNc thumb"
-          src='https://img.youtube.com/vi/H6bCSzxxiNc/hqdefault.jpg'
+          alt="Video f1JzE_h62nE thumb"
+          src='https://img.youtube.com/vi/f1JzE_h62nE/hqdefault.jpg'
         />
       }
       video={
         <iframe id="player"
           key="1"
-          src="https://www.youtube.com/embed/H6bCSzxxiNc?controls=0"
+          src="https://www.youtube.com/embed/f1JzE_h62nE?controls=0"
           frameBorder="0" ></iframe>
       }
     />,
@@ -64,14 +64,14 @@ const Videos = (): JSX.Element => {
       key="2"
       image={
         <img
-          alt="Video f1JzE_h62nE thumb"
-          src='https://img.youtube.com/vi/f1JzE_h62nE/hqdefault.jpg'
+          alt="Video H6bCSzxxiNc thumb"
+          src='https://img.youtube.com/vi/H6bCSzxxiNc/hqdefault.jpg'
         />
       }
       video={
         <iframe id="player"
           key="2"
-          src="https://www.youtube.com/embed/f1JzE_h62nE?controls=0"
+          src="https://www.youtube.com/embed/H6bCSzxxiNc?controls=0"
           frameBorder="0" ></iframe>
       }
     />,
