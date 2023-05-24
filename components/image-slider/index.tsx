@@ -43,6 +43,10 @@ export const ImageSlider = ({ imageLeft, imageRight }: Props): JSX.Element => {
         };
     }, [isDragging, handleResize, handleStopResize]);
 
+    useEffect(() => {
+        leftImage.current.style.clipPath = `inset(0px 50% 0px 0px)`;
+    }, []);
+
     return (
         <div className={styles.container}>
             <div
