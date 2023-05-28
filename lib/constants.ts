@@ -1,7 +1,7 @@
 export const GITHUB_API_URL = 'https://api.github.com/graphql';
 export const GITHUB_PROFILE_URL = 'https://github.com/henriquecesp/';
 export const LINKEDIN_PROFILE_URL = 'https://www.linkedin.com/in/henriquecesp/';
-export const YOUTUBE_PROFILE_URL = 'https://www.youtube.com/HenriqueCesp';
+export const YOUTUBE_PROFILE_URL = 'https://youtube.com/henriquecesp?sub_confirmation=1';
 export const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/henriquecesp/';
 export const CONTACT_EMAIL = 'henriquecesps4@gmail.com';
 export const WEBSITE_DOMAIN = 'https://henriquecesp.dev/';
