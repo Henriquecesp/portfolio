@@ -8,7 +8,7 @@ module.exports = {
         return config;
     },
     images: {
-        domains: ['img.youtube.com']
+        domains: ['img.youtube.com', 'i.ytimg.com']
     },
     i18n: {
         locales: ['en', 'pt'],
