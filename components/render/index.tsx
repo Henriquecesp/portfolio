@@ -21,6 +21,9 @@ export const Render = ({ Components, ...rest }: Props): JSX.Element => {
             <ReactFullpage
                 navigation
                 licenseKey="6LS57-89M8J-KIEF6-IZEH9-MANMM"
+                credits={{
+                    enabled: false
+                }}
                 render={({ fullpageApi }) => (
                     <ReactFullpage.Wrapper>
                         {Components.sort((a, b) => a.order - b.order).map(
