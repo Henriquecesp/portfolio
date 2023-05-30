@@ -47,7 +47,7 @@ export const Projects = (): JSX.Element => {
             id="projects"
             className="text-gray-100 body-font relative overflow-hidden"
             {...props}>
-            <VectorProjectsTop className="absolute top-10 left-24 scale-150" />
+            <VectorProjectsTop className="absolute top-14 left-24 scale-150" />
             <VectorProjectsCircle className="absolute top-10 right-0" />
             <div className="container mx-auto flex px-24 sm:px-5 py-10 sm:py-24 flex-col lg:flex-row items-center">
                 <ProjectImage>
