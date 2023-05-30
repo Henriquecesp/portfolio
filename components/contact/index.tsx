@@ -41,10 +41,9 @@ export const Contact = (): JSX.Element => {
     return (
         <section
             id="contact"
-            className="text-gray-400 body-font relative min-h-screen flex flex-col items-center justify-center"
+            className="text-gray-400 body-font relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
             style={{
-                background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 70%)',
-                overflow: 'hidden'
+                background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 70%)'
             }}>
             <VectorLineup className="absolute left-48 -top-36" />
             <VectorCircle className="absolute -right-16 -top-24" />
