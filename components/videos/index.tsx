@@ -103,7 +103,8 @@ const Videos = ({ videos }: { videos: VideoProps[] }): JSX.Element => {
             id="youtube"
             className="text-gray-100 relative z-0 min-h-screen"
             style={{
-                background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 100%)'
+                background: 'radial-gradient(50% 50% at 50% 50%, #230048 0%, #180033 100%)',
+                overflow: 'hidden'
             }}>
             <VectorCircle className="absolute top-[18%] left-1/4" />
             <motion.div
